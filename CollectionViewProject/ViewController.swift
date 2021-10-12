@@ -10,11 +10,11 @@ import UIKit
 // https://stackoverflow.com/questions/31735228/how-to-make-a-simple-collection-view-with-swift
 // https://stackoverflow.com/questions/35281405/fit-given-number-of-cells-in-uicollectionview-per-row
 
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let margin: CGFloat = 10
+    let margin: CGFloat = 30
 
     let reuseIdentifier = "cell" // Also enter this string as the cell identifier in the storyboard
     
@@ -40,7 +40,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     // Make a cell for each cell index path
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         // Get a reference to our storyboard cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! MyCollectionViewCell
         
@@ -60,6 +59,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         // Handle tap events
         print("You selected cell #\(indexPath.item)!")
     }
+}
+
+extension ViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // Number of column you want
@@ -73,7 +75,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(noOfCellsInRow))
         
+//        print(CGSize(width: size, height: size))
         return CGSize(width: size, height: size)
     }
-    
 }
