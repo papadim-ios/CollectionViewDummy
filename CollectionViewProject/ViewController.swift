@@ -9,6 +9,7 @@ import UIKit
 
 // https://stackoverflow.com/questions/31735228/how-to-make-a-simple-collection-view-with-swift
 // https://stackoverflow.com/questions/35281405/fit-given-number-of-cells-in-uicollectionview-per-row
+// https://medium.com/@NickBabo/equally-spaced-uicollectionview-cells-6e60ce8d457b  !!!
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
